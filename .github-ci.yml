@@ -1,0 +1,16 @@
+stages:
+  - pages
+
+pages:
+  stage: pages
+  image: "continuumio/miniconda:4.6.14"
+  script:
+   - mkdir public
+   - cp index.html .public
+   - mv .public public
+  artifacts:
+    paths:
+    - public
+    expire_in: 1 week
+  only:
+  - master
